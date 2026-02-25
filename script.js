@@ -4,9 +4,7 @@ function revealOnScroll() {
   reveals.forEach(section => {
     const windowHeight = window.innerHeight;
     const elementTop = section.getBoundingClientRect().top;
-    const revealPoint = 100;
-
-    if (elementTop < windowHeight - revealPoint) {
+    if (elementTop < windowHeight - 100) {
       section.classList.add("active");
     }
   });
