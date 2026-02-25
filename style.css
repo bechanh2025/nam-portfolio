@@ -1,111 +1,73 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Be Vietnam Pro', sans-serif;
-  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  margin: 0;
   color: #1e293b;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-.container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
+/* Animated Gradient Background */
+.gradient-bg {
+  position: fixed;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle at 30% 30%, #c7d2fe, transparent 40%),
+              radial-gradient(circle at 70% 70%, #a5b4fc, transparent 40%);
+  animation: floatGradient 15s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes floatGradient {
+  from { transform: translate(-10%, -10%) rotate(0deg); }
+  to { transform: translate(10%, 10%) rotate(10deg); }
 }
 
 .navbar {
-  position: sticky;
-  top: 0;
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.6);
   padding: 15px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.nav-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navbar a {
-  margin-left: 20px;
-  text-decoration: none;
-  color: #334155;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.navbar a:hover {
-  color: #6366f1;
-}
-
-.hero {
-  padding: 120px 0;
-}
-
-.hero h1 {
-  font-size: 52px;
-  font-weight: 700;
-}
-
-.badge {
-  display: inline-block;
-  margin: 20px 0;
-  padding: 8px 18px;
-  background: rgba(99,102,241,0.1);
-  color: #6366f1;
-  border-radius: 30px;
-}
-
-.hero-actions {
-  margin-top: 30px;
-}
-
-.btn-primary, .btn-secondary {
-  padding: 10px 20px;
-  border-radius: 30px;
-  text-decoration: none;
-  margin-right: 15px;
-  transition: 0.3s;
-}
-
-.btn-primary {
-  background: #6366f1;
-  color: white;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-}
-
-.btn-secondary {
-  border: 1px solid #6366f1;
-  color: #6366f1;
+  position: sticky;
+  top: 0;
 }
 
 .section {
-  padding: 100px 0;
+  padding: 100px 20px;
 }
 
-h2 {
-  font-size: 36px;
-  margin-bottom: 40px;
-}
-
-.card {
-  padding: 30px;
+.glass {
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(15px);
   border-radius: 20px;
-  margin-bottom: 30px;
-  transition: 0.4s;
+  padding: 30px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.timeline {
+  position: relative;
+  margin-top: 50px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  width: 3px;
+  height: 100%;
+  background: #6366f1;
+}
+
+.timeline-item {
+  margin-left: 60px;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 15px;
+  height: 15px;
+  background: #6366f1;
+  border-radius: 50%;
+  position: absolute;
+  left: -42px;
+  top: 10px;
 }
 
 .skills-grid {
@@ -115,38 +77,20 @@ h2 {
 }
 
 .skill {
-  padding: 15px;
-  border-radius: 15px;
-  text-align: center;
-  font-weight: 500;
-}
-
-.glass {
-  background: rgba(255,255,255,0.5);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.center {
   text-align: center;
 }
 
-footer {
-  text-align: center;
-  padding: 40px;
-  font-size: 14px;
-  opacity: 0.7;
-}
-
-/* Reveal Animation */
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(50px);
   transition: 0.8s ease;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+.center {
+  text-align: center;
 }
